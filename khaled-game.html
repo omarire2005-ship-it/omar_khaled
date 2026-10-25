@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>العهد</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--ac:#ffd166;--tx:#f6efff}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% 0,#2b1a4d,#0d0a1a 70%) fixed;color:var(--tx);font-family:Cairo,Tahoma,sans-serif;display:flex;justify-content:center}
+#g{width:100%;max-width:700px;padding:10px}
+.px{border:3px solid #000;border-radius:12px;box-shadow:inset 0 0 0 2px #4b3a8a,0 4px 0 #0008;background:#1e1738;padding:10px 12px;margin:8px 0}
+button{font:inherit;color:var(--tx);background:#6a52c4;border:3px solid #000;border-radius:10px;padding:6px 14px;cursor:pointer;box-shadow:0 3px 0 #000}
+button:hover{background:#8a72e4}button:active{transform:translateY(2px);box-shadow:0 1px 0 #000}button.on{background:var(--ac);color:#000}
+#bar{display:flex;justify-content:space-between;font-size:14px;gap:6px;flex-wrap:wrap}
+#sc{position:relative;border:4px solid #000;border-radius:14px;aspect-ratio:16/9;overflow:hidden;box-shadow:0 5px 0 #000a}
+#cv{width:100%;height:100%;image-rendering:pixelated;display:block}
+#vg{position:absolute;inset:0;box-shadow:inset 0 0 70px #000c;pointer-events:none}
+.ob{position:absolute;transform:translate(-50%,-50%);font-size:12px;background:#1e1738ee;border:2px solid var(--ac);border-radius:12px;padding:3px 9px;cursor:pointer;animation:pl 1.6s infinite}
+.ob.done{border-color:#4ade80;animation:none;opacity:.75}.ob.done:after{content:' ✓'}
+@keyframes pl{50%{box-shadow:0 0 12px var(--ac);transform:translate(-50%,-56%)}}
+#kh{position:absolute;width:40px;image-rendering:pixelated;transition:left .6s,top .6s;transform:translate(-50%,-100%);pointer-events:none;filter:drop-shadow(0 4px 0 #0006)}
+#tabs{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+#dlg,.sv{display:flex;gap:12px;align-items:flex-start;min-height:100px}
+.pc{width:72px;height:72px;image-rendering:pixelated;border:3px solid #000;border-radius:10px;background:#2a2150;flex:none}.big{width:100px;height:100px}
+#ct{flex:1;line-height:1.9}
+input{font:inherit;padding:6px 10px;background:#0009;color:var(--tx);border:3px solid #000;border-radius:10px;width:46%}
+.w{background:#075e54;border-radius:4px 14px 14px 14px;padding:6px 12px;margin:5px 0;font-size:14px}.w b{color:#9be8b0}
+.tb{height:12px;background:#0009;border:2px solid #000;border-radius:7px;overflow:hidden;margin-top:4px}
+.tb i{display:block;height:100%;background:linear-gradient(90deg,#e74c3c,#f1c40f);transition:width .8s}
+h1{color:var(--ac);text-align:center;margin:8px 0;text-shadow:3px 3px 0 #000,0 0 18px #ffd16699}
+@keyframes sh{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}.shake{animation:sh .35s}
+.pw{position:relative;flex:none}.pw .em{position:absolute;top:-12px;left:-8px;font-size:22px;animation:fy 1.2s infinite;pointer-events:none}
+@keyframes fy{50%{transform:translateY(-8px) scale(1.2)}}
+.m-h{animation:bo .5s infinite}.m-a{animation:sh .25s infinite}.m-s{animation:dr 2.4s infinite}.m-w{animation:sh .6s infinite}
+@keyframes bo{50%{transform:translateY(-6px)}}@keyframes dr{50%{transform:translateY(3px) rotate(-3deg)}}
+#kh{width:54px}#kh canvas{width:54px;display:block;image-rendering:pixelated}#kh .em{position:absolute;top:-16px;right:-10px;font-size:18px;animation:fy 1.2s infinite}
+.ob{text-align:center}.ob canvas{width:40px;display:block;margin:0 auto 3px;image-rendering:pixelated}
+.d{position:absolute;bottom:-6px;width:3px;height:3px;background:#fff8;border-radius:1px;animation:fl 7s linear infinite;pointer-events:none}
+@keyframes fl{to{transform:translateY(-300px) translateX(20px);opacity:0}}
+#bar button{padding:0 8px}
+.pc{width:84px;height:84px;background:radial-gradient(circle at 50% 30%,#4a3a8a,#1a1430)}.big{width:120px;height:120px}#kh,#kh canvas{width:58px}.ob canvas{width:46px}
+.m-h,.m-a,.m-s,.m-w,.m-n{animation:none!important}.em{display:none!important}.shake{animation:none!important}.shake #vg{box-shadow:inset 0 0 90px #ff3b3b!important}#vg{transition:box-shadow .4s}
+.ob.npc{background:none;border:none;animation:none;padding:0;font-weight:700;font-size:13px;text-shadow:0 2px 0 #000,0 0 6px #000}.ob.npc canvas{width:58px;margin:0 auto 2px;filter:drop-shadow(0 4px 0 #0007)}
+.pc{background:none;border:none;border-radius:0;filter:drop-shadow(0 4px 0 #0008)}
+#kh{z-index:6}.ob{z-index:3}#kh,#kh canvas{width:clamp(38px,8.5vw,58px)}.ob.npc canvas{width:clamp(38px,8.5vw,58px)}
+#pz{position:fixed;inset:0;background:#000c;z-index:50;display:flex;align-items:center;justify-content:center;padding:14px;backdrop-filter:blur(3px)}
+.pzc{width:100%;max-width:420px;margin:0;animation:pop .25s}@keyframes pop{from{transform:scale(.9);opacity:0}}
+.pzh{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:18px}.pzh span{font-size:26px}.pzh b{flex:1}
+.note{background:#f3e3b8;color:#2a1c0a;border:3px solid #000;border-radius:6px;padding:12px;margin:10px 0;line-height:2.1;font-size:16px;transform:rotate(-.6deg);box-shadow:3px 3px 0 #0008}
+.n{display:inline-block;background:#2a1c0a;color:#ffd166;border-radius:6px;padding:0 8px;margin:0 2px;font-family:monospace}.n.qm{background:#c0392b;color:#fff;animation:pl2 1s infinite}@keyframes pl2{50%{opacity:.5}}
+.dsp{display:flex;justify-content:center;gap:8px;margin:12px 0}
+.cell{width:44px;height:56px;background:#05140a;border:3px solid #000;border-radius:8px;color:#4ade80;font:700 30px/50px monospace;text-align:center;box-shadow:inset 0 0 12px #0f06}
+.cell.f{box-shadow:inset 0 0 14px #4ade8099}.dsp.ok .cell{background:#0d3a1a;border-color:#4ade80}.dsp.bad .cell{background:#3a0d0d;color:#ff5a5a;border-color:#ff3b3b}
+.pad{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;direction:ltr}.key{font-size:20px;padding:10px 0}.key:disabled{opacity:.25}
+.pzf{display:flex;gap:10px;align-items:center;margin-top:10px}#hf{flex:1}
+.fch{position:absolute;top:90%;transform:translate(-50%,-100%);width:clamp(34px,8vw,56px);image-rendering:pixelated;filter:drop-shadow(0 4px 0 #0007);transition:filter .3s;z-index:4}.fch.sp{filter:drop-shadow(0 0 10px #ffd166)}
+.cast{display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px;text-align:center;line-height:1.8}.cast canvas{width:64px;image-rendering:pixelated}
+#adv{text-align:center;padding:22px 10px;border:4px solid #000;border-radius:14px;background:radial-gradient(circle at 50% 30%,#3a2f6a,#0a0814 72%);min-height:440px;overflow:hidden;box-shadow:0 5px 0 #000a}
+.sils{display:flex;justify-content:center;gap:16px;align-items:flex-end;height:130px;margin-bottom:14px}.sil{width:38px;filter:brightness(0);opacity:.28;image-rendering:pixelated}.lone{width:74px;image-rendering:pixelated;filter:drop-shadow(0 0 20px #ffd16699)}
+.ln{opacity:0;animation:fi 1.4s forwards;margin:10px 0}@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.l1{font-size:32px;color:var(--ac);font-weight:700;text-shadow:3px 3px 0 #000,0 0 18px #ffd16688}.l2{font-size:24px;font-weight:700}.l3{font-size:18px;color:#cfc7f5;line-height:2}
+</style></head><body><div id="g"></div>
+<script>
+const $=s=>document.querySelector(s),G=$('#g');
+const N=s=>String(s).replace(/[٠-٩]/g,d=>d.charCodeAt(0)-1632).replace(/[أإآ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/^ال/,'').replace(/\s+/g,'').toLowerCase();
+const P=(q,a,c,h)=>({q,a,c,h});
+const ST=[
+{t:'المرحلة ١: السر',
+intro:'خالد وساره بنت عمته، عندهم ١٧ سنة. من زمان اتفقوا على عهد: يبقوا زي الإخوات، ويحكوا لبعض كل حاجة، ومحدش فيهم يرتبط أبدًا عشان خاطر العيلة. النهارده خالد اكتشف إن ساره خالفت العهد وارتبطت بحد، وبقت كمان تستغله وتخليه يغطي عليها... خالد قرر يحكي لكريم ابن عمته، وكريم بدأ يساعده على الواتساب.',
+chat:['كريم','متقلقش يا خالد، أنا معاك. هنجمع الأدلة الأول وبعدين نروح لأهل ساره. دوس على أي حاجة في البيت وأنا هلمّحلك.'],
+end:'خالد وكريم راحوا لأم وأبو ساره وعرضوا عليهم كل الأدلة. الصدمة كانت كبيرة، وساره حاولت تنكر بس الأدلة كانت أقوى منها.\n\nوكانت النهاية: آخرة اللي يمشي غلط ويكتم ويستغل غيره. كلنا فقدنا الأمل في ساره، وخسرت ثقة عيلتها كلها.',
+rooms:[
+{n:'أوضتي',c:'#3b4a7a',o:[
+['المكتب',25,55,'لقيت ورقة العهد القديمة، مكتوب فيها: «١٢/٣ — محدش فينا هيرتبط، ونفضل زي الإخوات». التاريخ ده ممكن يفتح حاجة.'],
+['الدولاب',72,55,P('لقيت جروب سري اسمه «لا للعلن». كلمة السر هي عكس كلمة «علني».',['سر'],'ساره كانت بتكلمه في جروب سري.','عكس «علني» إيه؟')]]},
+{n:'الصالة',c:'#6a4a3a',o:[
+['تليفون ساره القديم',30,60,P('التليفون عليه قفل من ٤ أرقام. ساره دايمًا بتستخدم تاريخ العهد (اليوم وبعده الشهر).',['1203'],'رسايل ساره لأحمد على تليفونها القديم.','ورقة العهد في أوضتي.')],
+['مصطفى',75,50,'مصطفى أخو ساره: أنا حاسس إنها مخبية حاجة، بس مش هتكلم من غير دليل. اسأل كريم.']]},
+{n:'المطبخ',c:'#3a6a5a',o:[
+['ورقة الثلاجة',30,50,P('ورقة صغيرة مكتوب عليها «دمحأ». الاسم الحقيقي بيتقري إزاي؟',['احمد'],'اسم الشخص: أحمد.','اقراها من الآخر.')],
+['فاتورة',72,62,P('فاتورة هدية دفعها خالد بدالها: ٤٥ + ٣٠ + ٢٥. الإجمالي كام؟',['100'],'ساره استغلت خالد في الفلوس وخلّته يدفع بدالها.','اجمع الأرقام.')]]},
+{n:'السطح',c:'#2a3a5a',o:[
+['لوحة المواعيد',30,55,P('الثلاثاء ٤، الخميس ٦، السبت ؟ (النمط واضح)',['8'],'ساره بتقابله يوم السبت الساعة ٨.','كل يوم بيزيد ٢.')],
+['أبو خالد',75,55,'أبوك: الحق مش بيستخبى يا ابني، وأنا واثق فيك.']]}]},
+{t:'المرحلة ٢: فرصة تانية',
+intro:'ساره عيطت واعتذرت واستعطفت خالد، وخالد سامحها وأقنع العيلة تدّيها فرصة تانية. بس بعد شهر رجعت لعادتها وكلمت أحمد من تليفون صاحبتها! خالد عرف وحلف إنه هيسوّد عيشتها لو ما اتعدلتش. أماكن جديدة، وسبع ألغاز جديدة.',
+chat:['كريم','قلتلك يا خالد إنها هتعملها تاني. نفس الشغل بس من تليفون صاحبتها. شد حيلك، السبع ألغاز دول هيكمّلوا الصورة.'],
+end:'الأدلة اكتملت. خالد بقى مش زعلان وبس، بقى حاسس بالخيانة. وقرر إن المواجهة الأخيرة لازم تحصل قدام العيلة كلها.',
+rooms:[
+{n:'الجراج',c:'#4a4a4a',o:[
+['علبة قديمة',30,55,P('علبة عليها قفل. الكود: عدد أيام الأسبوع × عدد شهور السنة.',['84'],'ساره دخلت على تليفون صاحبتها.','٧ × ١٢')],
+['العربية',72,60,P('مكتوب على الإزاز: مكالمة الساعة ١١:٣٠ بالليل، ومدتها بالدقايق ضعف الرقم ٣٠. كام دقيقة؟',['60'],'كلمته ساعة كاملة بعد ما الكل نام.','٣٠ × ٢')]]},
+{n:'الحديقة',c:'#2f6b3a',o:[
+['الحيطة',28,55,P('مكتوب على الحيطة: «ليا ودان من غير راس، ولو اتكلمت جنبي كل الناس هتعرف سرك». أنا إيه؟',['جدار','حيطة','حائط'],'جارهم سمع ساره بتكلم أحمد من ورا الحيطة.','بيتقال عني: «الحيطان ليها ودان».')],
+['الكشك',72,60,P('إيصال: ٣ هدايا × ٥٠ جنيه، ودفعهم خالد. الإجمالي كام؟',['150'],'خالد دفع تمن هدايا أحمد من جيبه.','٣ × ٥٠')]]},
+{n:'المدرسة',c:'#7a5a2a',o:[
+['الخزنة',28,55,P('الحروف اتلخبطت: «هدعلا». رتّبها تطلع الكلمة اللي بدأت منها الحكاية.',['العهد'],'ورقة العهد اتكتبت بخط الاتنين.','كلمة بتبدأ بـ «ال».')],
+['السبورة',72,50,P('٢، ٤، ٨، ١٦، ؟ — إيه الرقم اللي بعده؟',['32'],'جدول مواعيدها مع أحمد.','كل رقم ضعف اللي قبله.')]]},
+{n:'بيت صاحبتها',c:'#7a3a5a',o:[
+['لوحة المفاتيح',50,55,P('اللاب بتاعها بيطلب كلمة سر: أول حروف «نجلاء، وفاء، رهف».',['نور'],'نور صاحبتها وشاهدة على كل حاجة.','هات أول حرف من كل اسم واجمعهم.')]]}]},
+{t:'المرحلة ٣: المواجهة',
+intro:'ساره وخالد قاعدين لوحدهم.\nخالد: عملتي كده ليه؟ اعتبرتك أختي ودافعت عنك، وإنتي صمّمتي تكدبي.\nساره: مش هتفهم...\nخالد: خلاص. العيلة هتتجمع، وهجيب الأدلة من أماكن بره البيت وأشهد ضدك.',
+chat:['كريم','أنا ومصطفى معاك. هو كمان زعلان من أخته. اجمع الأدلة من بره وبعدين نروح بيت الجد.'],
+rooms:[
+{n:'الكافيه',c:'#6b4a2a',o:[
+['الويتر',28,55,P('الويتر قال: كانوا قاعدين على الطرابيزة رقم (٣ × ٣ − ٢). رقم كام؟',['7'],'الويتر شافهم قاعدين سوا على الطرابيزة ٧.','٩ − ٢')],
+['كاميرا الكافيه',72,40,P('كود الكاميرا: ٢، ٣، ٥، ٧، ؟ (كلهم أعداد أولية)',['11'],'تسجيل الكاميرا بيثبت اللقاء.','العدد الأولي اللي بعد ٧.')]]},
+{n:'النادي',c:'#2a5a7a',o:[
+['المدرب',50,55,P('المدرب بيقولك: «لو غلطت مرة اتعلمت، ولو كررتها بقت...؟» (تلميح: مش صدفة)',['اختيار'],'المدرب شهد إنها كانت بتقابله بمزاجها وعن قصد.','مش صدفة ولا غلطة، دي بقت...')]]},
+{n:'محل الموبايلات',c:'#3a3a6a',o:[
+['البياع',50,55,P('تليفون سعره ٣٠٠ وعليه خصم ٥٠٪. خالد دفع كام؟',['150'],'ساره اشترت تليفون جديد بفلوس خالد عشان تكلمه.','نص ٣٠٠')]]}]}
+];
+let S=0,R=0,done={},clues=[],hl=0,chat=[];
+const key=(s,r,i)=>s+'-'+r+'-'+i;
+let M='n',T,TK=0,f=0,AC,MU=0,bi=0;const MS=['w','a','s'],base=[100,50,20],SK='#ffe6d3',PI={'خالد':200,'ساره':330,'كريم':260,'مصطفى':170,'أبو خالد':110},SC=[[220,262,330,262],[196,233,294,233],[175,208,262,208]],EM={a:'💢',s:'💧',h:'✨',w:'💦',n:''},NPC=['مصطفى','أبو خالد','الويتر','المدرب','البياع'],CL={'خالد':['#ffd166','#2a3a8a'],'ساره':['#ff8fb8','#6a4fa0'],'كريم':['#3aa86a','#2a2a40'],'مصطفى':['#e05252','#3a3a50'],'أبو خالد':['#8a9aa8','#4a4a5a']};
+function snd(fr,d,ty,v){if(MU)return;try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state=='suspended')AC.resume();const o=AC.createOscillator(),g=AC.createGain(),t=AC.currentTime;o.type=ty||'square';o.frequency.value=fr;g.gain.setValueAtTime(v||.03,t);g.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(g);g.connect(AC.destination);o.start();o.stop(t+d)}catch(e){}}
+const ok_=()=>[523,659,784].forEach((q,i)=>setTimeout(()=>snd(q,.18,'triangle',.07),i*90)),bad_=()=>snd(110,.35,'sawtooth',.05);
+const LK={'خالد':{h:'#3b2415',hl:'#6a4528',e:'#4a2e1a',j:'#1f2f5c',j2:'#ffd166',t:'#fff',p:'#2b2b3a'},'ساره':{h:'#3a2216',hl:'#7a4a30',e:'#3f5a3a',j:'#f3e3c8',j2:'#ff8fb8',t:'#ff8fb8',p:'#6a4fa0'},'كريم':{h:'#1f1a2a',hl:'#4a4060',e:'#2a2a2a',j:'#2e9a62',j2:'#ffd166',t:'#fff',p:'#2a2a40'},'مصطفى':{h:'#2a1a10',hl:'#5a3a22',e:'#222',j:'#c0392b',j2:'#fff',t:'#222',p:'#333a50'},'أبو خالد':{h:'#b0b0b0',hl:'#e8e8e8',e:'#3a2a1a',j:'#5a6878',j2:'#ddd',t:'#fff',p:'#3a3a48'},'أم ساره':{h:'#7a4a9a',hl:'#a070c8',e:'#3a2a1a',j:'#7a4a9a',j2:'#ffd166',t:'#fff',p:'#3a3a48'},'الويتر':{h:'#1a1208',hl:'#4a3a28',e:'#222',j:'#222',j2:'#fff',t:'#fff',p:'#111'},'المدرب':{h:'#2a1a10',hl:'#5a3a22',e:'#222',j:'#2a5ac0',j2:'#fff',t:'#fff',p:'#1a2a5a'},'البياع':{h:'#2a1a10',hl:'#5a3a22',e:'#222',j:'#e67e22',j2:'#fff',t:'#fff',p:'#333'},'أبو ساره':{h:'#2a2a30',hl:'#555',e:'#3a2a1a',j:'#6a5a3a',j2:'#ddd',t:'#fff',p:'#33384a'}};
+function pt(x,who,mood,talk){const L=LK[who]||LK['خالد'],E='#1a1a1a',SH='#f0c4a6',bl=f%26<2,r=(a,b,w,h,c)=>{x.fillStyle=c;x.fillRect(a,b,w,h)},ci=(cx,cy,R,c)=>{for(let i=-R;i<=R;i++)for(let j=-R;j<=R;j++)if(i*i+j*j<=R*R+1)r(cx+i,cy+j,1,1,c)},h=L.h,hl=L.hl,B=who=='أبو خالد'?'#888':who=='أم ساره'?'#3a2216':h,M2=who=='أبو خالد'?'#6a3a3a':'#c0605a',MC=who=='أبو خالد'?'#9a9a9a':SK;
+if(who=='ساره')r(5,5,14,13,h);
+r(10,16,4,3,SH);[[8,15],[7,16],[6,17],[6,17],[6,17],[6,17],[6,17],[6,17],[6,17],[6,17],[7,16],[8,15],[9,14]].forEach((q,i)=>r(q[0],4+i,q[1]-q[0]+1,1,SK));
+r(5,10,1,3,SK);r(18,10,1,3,SK);r(5,11,1,1,SH);r(18,11,1,1,SH);
+if(who=='خالد'){ci(8,5,3,h);ci(12,3,3,h);ci(16,5,3,h);ci(5,7,2,h);ci(19,7,2,h);ci(10,6,2,h);ci(14,6,2,h);ci(7,3,2,h);ci(17,3,2,h);r(11,2,2,1,hl);r(7,4,1,1,hl);r(16,4,1,1,hl);r(9,5,1,1,hl);r(13,5,1,1,hl);r(6,9,1,4,h);r(17,9,1,4,h)}
+else if(who=='ساره'){r(7,2,10,1,h);r(6,3,12,3,h);r(12,2,1,4,hl);r(6,5,5,3,h);r(6,8,2,3,h);r(13,5,5,3,h);r(16,8,2,3,h);r(8,3,2,1,hl);r(14,3,2,1,hl)}
+else if(who=='كريم'){r(6,3,12,3,h);r(8,1,10,2,h);r(10,0,7,1,h);r(6,6,1,3,h);r(17,5,1,3,h);r(11,1,4,1,hl);r(5,12,1,1,'#ffd166')}
+else if(who=='مصطفى'){r(6,3,12,3,h);r(7,2,10,1,h);r(8,1,8,1,h);r(10,2,3,1,hl)}
+else if(who=='الويتر'){r(6,3,12,3,h);r(7,2,10,1,h);r(11,2,3,1,hl)}
+else if(who=='المدرب'){r(6,3,12,2,h);r(7,2,10,1,h);r(6,3,12,1,'#c0392b')}
+else if(who=='البياع'){r(6,2,12,3,'#2a5ac0');r(7,1,10,1,'#2a5ac0');r(5,5,14,1,'#1a3a90')}
+else if(who=='أم ساره'){r(6,2,12,3,h);r(5,3,14,2,h);r(4,5,2,16,h);r(18,5,2,16,h);r(5,5,1,5,h);r(18,5,1,5,h);r(7,2,6,1,hl);r(8,17,8,3,h)}
+else if(who=='أبو ساره'){r(6,3,12,3,h);r(7,2,10,1,h);r(9,14,6,1,'#333')}
+else{r(6,3,12,2,h);r(7,2,10,1,h);r(5,5,1,4,h);r(18,5,1,4,h);r(8,15,8,3,'#9a9a9a');r(9,14,6,1,'#9a9a9a')}
+const ey=a=>{if(bl)r(a-1,11,5,1,E);else{r(a,9,3,4,L.e);r(a+1,10,1,2,'#0a0a0a');r(a,9,1,1,'#fff');r(a+2,12,1,1,'#ffffffaa');r(a-1,8,5,1,E);r(a-1,9,1,1,E)}};
+if(mood=='h'){[8,13].forEach(a=>{r(a,10,1,1,E);r(a+1,9,1,1,E);r(a+2,10,1,1,E)})}else{ey(8);ey(13);if(mood=='a'){r(7,9,5,1,E);r(12,9,5,1,E)}}
+if(who=='مصطفى'){r(7,8,5,1,'#222');r(7,13,5,1,'#222');r(7,8,1,6,'#222');r(11,8,1,6,'#222');r(12,8,5,1,'#222');r(12,13,5,1,'#222');r(12,8,1,6,'#222');r(16,8,1,6,'#222');r(11,10,2,1,'#222')}
+if(mood=='a'){r(7,6,2,1,B);r(9,7,2,1,B);r(8,7,1,1,B);r(15,6,2,1,B);r(13,7,2,1,B);r(15,7,1,1,B)}
+else if(mood=='s'||mood=='w'){r(7,7,2,1,B);r(9,6,2,1,B);r(15,7,2,1,B);r(13,6,2,1,B)}
+else{r(8,7,3,1,B);r(13,7,3,1,B)}
+r(12,12,1,2,SH);r(7,13,2,1,mood=='h'||mood=='a'?'#ffa8a8':'#fbd3c6');r(15,13,2,1,mood=='h'||mood=='a'?'#ffa8a8':'#fbd3c6');
+r(10,14,5,3,MC);
+if(mood=='h'){r(10,15,5,1,M2);r(9,14,1,1,M2);r(15,14,1,1,M2);r(11,16,3,1,'#fff')}
+else if(mood=='a'){r(10,15,5,2,'#fff');r(10,15,5,1,E);r(12,15,1,2,'#bbb');r(9,15,1,2,M2);r(15,15,1,2,M2)}
+else if(mood=='s'){r(11,15,3,1,M2);r(10,16,1,1,M2);r(14,16,1,1,M2);r(8,9,2,2,'#fff');r(13,9,2,2,'#fff');r(8,13+((f>>2)%3),1,2,'#7cf');r(15,13+(((f>>2)+1)%3),1,2,'#7cf')}
+else if(mood=='w'){r(11,16,3,1,M2);r(10,15,1,1,M2);r(14,15,1,1,M2);r(19,5,2,3,'#7cf');r(19,5,1,1,'#fff')}
+else{r(11,15,3,1,M2);r(14,14,1,1,M2)}
+if(talk&&f%4<2){r(10,14,5,3,MC);r(11,15,3,2,'#7a1e1e');r(11,16,3,1,'#d9676b')}
+if(who=='ساره'){r(4,8,3,16,h);r(17,8,3,16,h);r(5,9,1,12,hl);r(18,9,1,12,hl)}}
+function outfit(x,w,full){const L=LK[w]||LK['خالد'],r=(a,b,c,d,k)=>{x.fillStyle=k;x.fillRect(a,b,c,d)};
+r(3,18,18,6,L.j);r(2,19,1,5,L.j);r(21,19,1,5,L.j);r(16,19,5,5,'#0002');r(9,18,6,3,L.t);r(10,18,4,1,'#f0c4a6');r(8,18,1,3,L.j2);r(15,18,1,3,L.j2);
+if(w=='الويتر'){r(10,19,4,2,'#c0392b');r(11,19,2,1,'#fff')}if(w=='المدرب'){r(11,20,2,1,'#ddd');r(12,21,1,2,'#ddd')}if(w=='البياع')r(9,20,6,1,'#fff');if(w=='ساره'){r(10,20,4,1,'#ffd166');r(12,21,1,1,'#ffd166')}if(w=='كريم'){r(10,20,4,1,'#ffd166');r(12,21,1,2,'#ffd166');r(10,21,1,3,'#fff');r(13,21,1,3,'#fff')}if(w=='مصطفى')r(3,21,18,1,L.j2);if(w=='أبو خالد')r(11,19,2,5,'#c0392b');if(w=='خالد')r(11,21,2,3,L.j2);
+if(full){r(3,24,18,10,L.j);r(16,24,5,10,'#0002');r(2,24,1,9,L.j);r(21,24,1,9,L.j);r(1,33,2,2,'#ffe6d3');r(21,33,2,2,'#ffe6d3');r(4,34,16,1,'#0004');if(w=='خالد')r(11,24,2,10,L.t);if(w=='مصطفى')r(3,28,18,1,L.j2);r(5,35,14,6,L.p);r(11,36,2,5,'#0003');r(4,41,7,2,'#eee');r(13,41,7,2,'#eee')}}
+function drw(c){const w=c.dataset.w,fl=c.dataset.f;c.width=24;c.height=fl?43:24;const x=c.getContext('2d');outfit(x,w,!!fl);pt(x,w,c.dataset.m||'n',c.dataset.t=='1'&&TK)}
+function setM(c,m){if(!c)return;c.dataset.m=m;c.className=c.className.replace(/ ?m-\w/g,'')+' m-'+m;const e=c.nextElementSibling;if(e&&e.classList.contains('em'))e.textContent=EM[m]||''}
+function por(c,who,m){c.dataset.w=who;setM(c,m)}
+function stopT(){clearInterval(T);TK=0}
+function type(el,t,sp,who){stopT();let i=0;TK=1;T=setInterval(()=>{i+=2;el.textContent=t.slice(0,i);if(t[i-1]&&t[i-1]!=' ')snd((PI[who]||200)*(.9+Math.random()*.3),.05,'square',.03);if(i>=t.length)stopT()},sp||24)}
+function pw(c,m,id,w,t){return '<div class="pw"><canvas id="pc" class="pc'+(c||'')+'" data-w="'+w+'" data-m="'+m+'" data-t="1"></canvas><span class="em">'+(EM[m]||'')+'</span></div>'}
+function say(who,t,m){const p=$('#pc');if(!p)return;por(p,who,m||M);type($('#tx'),who+': '+t,24,who)}
+function story(h,btn,fn,who,m){who=who||'خالد';m=m||M;G.innerHTML='<h1>العهد</h1><div class="px sv">'+pw(' big',m,0,who)+'<div id="tx" style="white-space:pre-line;line-height:2;flex:1"></div></div><div style="text-align:center"><button id="nx">'+btn+'</button></div>';setM($('#pc'),m);type($('#tx'),h,20,who);$('#tx').onclick=()=>{stopT();$('#tx').textContent=h};$('#nx').onclick=()=>{stopT();snd(440,.1,'triangle',.05);fn()}}
+setInterval(()=>{f++;document.querySelectorAll('canvas[data-w]').forEach(drw)},130);
+setInterval(()=>{if(!MU&&AC)snd(SC[S][bi++%4],1.5,'sine',.03)},1700);
+document.addEventListener('pointerdown',()=>{if(AC&&AC.state=='suspended')AC.resume()});
+function start(){G.innerHTML='<h1>العهد</h1><div class="px" style="text-align:center;line-height:2">قصة ولغز عن العهد والثقة والعيلة. اجمع الأدلة وواجه الحقيقة.</div><div class="px cast">'+['خالد','ساره','كريم','مصطفى','أبو خالد'].map(w=>'<div><canvas data-w="'+w+'" data-f="1" data-m="n"></canvas><br>'+w+'</div>').join('')+'</div><div style="text-align:center"><button id="go" class="on">ابدأ</button></div>';$('#go').onclick=()=>{snd(440,.1,'triangle',.05);begin(0)}}
+function begin(s){S=s;R=0;clues=[];done={};M=MS[s];chat=[ST[s].chat];story(ST[s].t+'\n\n'+ST[s].intro,'يلا نبدأ',play,'خالد',M)}
+function bg(n,col){const c=$('#cv'),x=c.getContext('2d'),r=(a,b,w,h,k)=>{x.fillStyle=k;x.fillRect(a,b,w,h)},out=n=='السطح'||n=='الحديقة',nt=n=='السطح';
+if(out){const g=x.createLinearGradient(0,0,0,34);g.addColorStop(0,nt?'#10163a':'#6fc3ff');g.addColorStop(1,nt?'#3b3170':'#c9ecff');x.fillStyle=g;x.fillRect(0,0,96,34);r(0,34,96,20,nt?'#4a4a58':'#3f9a4a');
+if(nt){for(let i=0;i<20;i++)r((i*37)%96,(i*13)%24,1,1,'#fff');r(80,6,6,6,'#fff3b0');r(76,22,10,12,'#7a6a5a');r(0,30,96,2,'#2a2a3a')}else{r(66,6,6,6,'#fff');for(let i=0;i<3;i++){r(10+i*30,14,12,10,'#2f7a38');r(15+i*30,24,2,10,'#5a3a1a')}}}
+else{r(0,0,96,34,col);for(let i=0;i<96;i+=6)r(i,0,3,34,'#ffffff12');r(0,32,96,2,'#0006');for(let j=0;j<20;j+=4)r(0,34+j,96,4,j%8?'#7a4a2c':'#8a5634');for(let i=0;i<96;i+=12)r(i,34,1,20,'#0004');
+r(8,6,16,16,'#4a2e1e');r(9,7,14,14,'#16225a');for(let i=0;i<5;i++)r(10+i*3,8+(i*5)%9,1,1,'#fff');r(18,9,3,3,'#fff3b0');r(15,7,2,14,'#4a2e1e');r(9,13,14,2,'#4a2e1e');r(30,36,36,12,'#7a2a3a');r(31,37,34,10,'#a33a4a');r(33,39,30,6,'#8a2e40');
+const F={'أوضتي':()=>{r(60,18,30,16,'#5a3a8a');r(60,22,30,12,'#7a5ac0');r(62,20,10,6,'#fff');r(34,22,20,3,'#6a4a2a');r(36,25,2,10,'#4a2e1e');r(52,25,2,10,'#4a2e1e')},
+'الصالة':()=>{r(10,24,36,10,'#3a6a9a');r(10,20,36,5,'#4a7aaa');r(60,16,24,16,'#111');r(62,18,20,12,'#2a5a6a')},
+'المطبخ':()=>{r(60,6,16,28,'#dfe6ee');r(60,18,16,1,'#999');r(30,24,26,10,'#8a6a4a');r(30,22,26,3,'#ddd');r(40,8,8,8,'#f2d070')},
+'الجراج':()=>{r(20,22,50,12,'#c0392b');r(28,16,32,8,'#e0574a');r(30,17,12,6,'#9ad');r(46,17,12,6,'#9ad');r(26,32,10,4,'#111');r(54,32,10,4,'#111')},
+'المدرسة':()=>{r(30,6,40,16,'#1f5a3a');r(30,6,40,1,'#ddd');r(12,26,18,3,'#8a6a4a');r(66,26,18,3,'#8a6a4a')},
+'بيت صاحبتها':()=>{r(10,18,34,16,'#a05a9a');r(10,22,34,12,'#c27ac0');r(60,24,26,3,'#6a4a2a');r(66,16,14,8,'#222');r(67,17,12,6,'#7ad')},
+'الكافيه':()=>{r(10,22,76,4,'#5a3a22');r(18,8,60,10,'#3a2418');for(let i=0;i<4;i++)r(22+i*14,10,8,6,'#f2d070');r(14,30,10,3,'#8a6a4a');r(70,30,10,3,'#8a6a4a')},
+'النادي':()=>{for(let i=0;i<5;i++){r(8+i*17,8,15,26,'#3a6a9a');r(10+i*17,10,11,8,'#2a5a8a');r(20+i*17,22,2,3,'#ddd')}},
+'بيت الجد':()=>{r(6,22,30,12,'#7a3a3a');r(6,18,30,5,'#8a4a4a');r(58,26,28,3,'#6a4a2a');r(62,14,20,10,'#2a1a3a');r(63,15,18,8,'#e8c06a')},'محل الموبايلات':()=>{for(let i=0;i<3;i++){r(8,10+i*8,80,1,'#ddd');for(let j=0;j<8;j++)r(12+j*10,5+i*8,4,5,'#222')}r(20,28,56,6,'#6a5a8a')}};
+if(F[n])F[n]()}
+const g=x.createRadialGradient(48,20,4,48,28,70);g.addColorStop(0,'rgba(255,200,120,.2)');g.addColorStop(1,'rgba(0,0,0,.3)');x.fillStyle=g;x.fillRect(0,0,96,54)}
+function total(){return ST[S].rooms.reduce((n,r)=>n+r.o.filter(o=>typeof o[3]=='object').length,0)}
+function play(){const st=ST[S],rm=st.rooms[R],nd=Object.keys(done).length,all=nd>=total(),tr=Math.round(base[S]*(1-.7*nd/total()));
+let d='';for(let i=0;i<14;i++)d+='<i class="d" style="left:'+(i*7+3)+'%;animation-delay:-'+(i*.9)+'s"></i>';
+G.innerHTML='<div id="bar" class="px"><span>'+st.t+'</span><span>🧩 '+nd+'/'+total()+'</span><span>💡 '+hl+'</span><button id="mu">'+(MU?'🔇':'🔊')+'</button></div><div class="px" style="padding:6px 12px;margin:0">💔 ثقة العيلة في ساره<div class="tb"><i style="width:'+tr+'%"></i></div></div><div id="sc" style="margin-top:8px"><canvas id="cv" width="96" height="54"></canvas>'+d+'<div id="kh" style="left:50%;top:92%"><canvas id="kc" data-w="خالد" data-f="1" data-m="'+M+'" class="m-'+M+'"></canvas><span class="em">'+(EM[M]||'')+'</span></div><div id="vg"></div></div><div id="tabs"></div><div id="dlg" class="px">'+pw('',M,0,'خالد')+'<div id="ct"><div id="tx"></div><div id="ctl"></div></div></div><div id="chat" class="px"><b>📱 واتساب</b>'+chat.map(c=>'<div class="w"><b>'+c[0]+':</b> '+c[1]+'</div>').join('')+'</div><div id="cl" class="px"><b>🗂️ الأدلة:</b> '+(clues.length?'<ul>'+clues.map(c=>'<li>'+c+'</li>').join('')+'</ul>':'لسه مفيش.')+'</div>'+(all?'<div style="text-align:center"><button id="fin" class="on">'+(S==2?'روح بيت الجد: اجتماع العيلة':'روح قول لأهل ساره')+'</button></div>':'');
+$('#mu').onclick=()=>{MU=!MU;$('#mu').textContent=MU?'🔇':'🔊'};
+bg(rm.n,rm.c);say('خالد','اختار حاجة من المكان...',M);
+st.rooms.forEach((r,i)=>{const b=document.createElement('button');b.textContent=r.n;if(i==R)b.className='on';b.onclick=()=>{R=i;play()};$('#tabs').append(b)});
+rm.o.forEach((o,i)=>{const b=document.createElement('div');b.className='ob'+(NPC.includes(o[0])?' npc':'')+(done[key(S,R,i)]?' done':'');b.style.left=o[1]+'%';b.style.top=o[2]+'%';if(NPC.includes(o[0])){b.innerHTML='<canvas data-w="'+o[0]+'" data-f="1" data-m="n"></canvas>'+o[0]}else b.textContent=o[0];b.onclick=()=>{const k=$('#kh');k.style.left=Math.min(88,Math.max(12,o[1]+(o[1]<50?14:-14)))+'%';k.style.top=Math.min(95,o[2]+30)+'%';snd(330,.08,'triangle',.05);touch(o,i)};$('#sc').append(b)});
+if(all)$('#fin').onclick=()=>{if(S==2){M='s';family()}else story(st.end,'كمّل',()=>begin(S+1),'خالد','s')}}
+function mood(m,ms){M=m;setM($('#kc'),m);setTimeout(()=>{M=MS[S];setM($('#kc'),M);const s=$('#sc');s&&s.classList.remove('shake')},ms||1800)}
+function touch(o,i){const k=key(S,R,i),L=o[0],who=(L=='مصطفى'||L=='أبو خالد')?L:'خالد';
+if(typeof o[3]=='string'){say(who,o[3],who=='خالد'?M:'n');$('#ctl').innerHTML='';return}
+const p=o[3];if(done[k]){say('خالد','خلصت اللغز ده: '+p.c,'h');return}
+if(NPC.includes(L))say(L,'أهلًا يا خالد، عندي ليك سؤال صغير...','n');else say('خالد','لازم أفتح ده... ركّز يا خالد.',M);pz(o,k,p)}
+function pz(o,k,p){const A=p.a[0],num=/^\d+$/.test(A),len=[...A].length,mix=a=>a.sort(()=>Math.random()-.5);let ty=[],n=0,bz=0;
+const L=mix([...A].concat(num?[]:mix([...'ابتجحخدرسشعفقكلمنهوي'].filter(c=>!A.includes(c))).slice(0,4))).map(c=>({c})),d=document.createElement('div');d.id='pz';
+d.innerHTML='<div class="px pzc"><div class="pzh"><span id="lk">🔒</span><b>'+o[0]+'</b><button id="px">✕</button></div><div class="note">'+p.q.replace(/[\d٠-٩]+/g,m=>'<b class="n">'+m+'</b>').replace(/؟/g,'<b class="n qm">؟</b>')+'</div><div id="dsp" class="dsp"></div><div id="pad" class="pad"></div><div class="pzf"><button id="hb">💡 تلميح</button><div id="hf"></div></div></div>';
+document.body.append(d);const dsp=$('#dsp'),pad=$('#pad');dsp.style.direction=num?'ltr':'rtl';
+function chk(){if(ty.length<len)return;const v=ty.map(t=>t.c).join('');bz=1;
+if(p.a.some(a=>N(a)==N(v))){dsp.classList.add('ok');$('#lk').textContent='🔓';ok_();setTimeout(()=>{d.remove();done[k]=1;clues.push(p.c);M='h';play();say('خالد','صح! '+p.c,'h');mood('h',2200)},900)}
+else{dsp.classList.add('bad');bad_();mood('a',1200);setTimeout(()=>{dsp.classList.remove('bad');ty=[];bz=0;ren()},650)}}
+function ren(){dsp.innerHTML=Array.from({length:len},(_,i)=>'<span class="cell'+(ty[i]?' f':'')+'">'+(ty[i]?ty[i].c:'')+'</span>').join('');pad.innerHTML='';
+const ks=num?[...'1234567890'].map(c=>({c})):L;
+ks.forEach((q,ix)=>{const b=document.createElement('button');b.className='key';b.textContent=q.c;b.disabled=!num&&ty.some(t=>t.q===q);b.onclick=()=>{if(bz||ty.length>=len)return;ty.push({c:q.c,q});snd(500+ty.length*60,.06,'square',.04);chk();ren()};pad.append(b)});
+const bk=document.createElement('button');bk.className='key';bk.textContent='⌫';bk.onclick=()=>{if(!bz){ty.pop();ren()}};pad.append(bk)}
+$('#hb').onclick=()=>{hl++;n++;const w=n==1?['كريم',p.h]:n==2?['مصطفى','أول حرف أو رقم من الإجابة: '+A[0]]:['أبو خالد','الإجابة هي: '+A];chat.push(w);$('#hf').innerHTML='<div class="w"><b>'+w[0]+':</b> '+w[1]+'</div>';snd(300,.1,'triangle',.05)};
+$('#px').onclick=()=>d.remove();ren()}
+function advice(){snd(110,1.6,'sine',.06);G.innerHTML='<div id="adv"><div class="sils"><canvas class="sil" data-w="أم ساره" data-f="1" data-m="n"></canvas><canvas class="sil" data-w="كريم" data-f="1" data-m="n"></canvas><canvas class="lone" data-w="ساره" data-f="1" data-m="s"></canvas><canvas class="sil" data-w="مصطفى" data-f="1" data-m="n"></canvas><canvas class="sil" data-w="أبو خالد" data-f="1" data-m="n"></canvas></div><div class="ln l1" style="animation-delay:.6s">إياك... ثم إياك</div><div class="ln l2" style="animation-delay:2.2s">إياك أن تخون الثقة</div><div class="ln l3" style="animation-delay:3.8s">لأنك لو خنتها، اعرف إنك هتبقى وحيد.<br>الثقة بتتبني في سنين... وبتتكسر في لحظة.</div><button id="rs" class="ln on" style="animation-delay:5.6s;margin-top:18px">العب من الأول</button></div>';$('#rs').onclick=()=>{snd(440,.1,'triangle',.05);start()}}
+function family(){const CH=[['أم ساره',10],['أبو ساره',22],['ساره',38],['خالد',56],['أبو خالد',70],['كريم',82],['مصطفى',93]],QK=[['الويتر','الكاميرا'],['المدرب'],['تليفون']],
+SC3=[['أبو ساره','n','إيه الموضوع المهم اللي جمعتنا كلنا هنا يا خالد؟'],['خالد','s','أنا آسف إني هفتح الموضوع ده قدامكم... بس لازم. ساره خالفت العهد للمرة التانية.',{'ساره':'w'}],['ساره','a','كدب! إنت بتتحامل عليّا!'],['خالد','s','اعتبرتك أختي ودافعت عنك قدام العيلة كلها، وإنتي صمّمتي تكدبي. هقدّم الأدلة.'],['أم ساره','w','طيب يا خالد، قول. إمتى وفين كانت بتقابله؟'],['Q',0],['أبو ساره','a','ده بجد يا ساره؟!'],['أبو خالد','n','وإزاي كانت بتخبي الموضوع ومحدش يعرف؟'],['Q',1],['ساره','s','أنا... مكنتش أقصد...'],['مصطفى','s','وإنت يا خالد، اتأثرت إزاي؟'],['Q',2],['كريم','s','إحنا حاولنا نحميكي يا ساره، بس إنتي اللي ضيّعتي نفسك.',{'ساره':'s'}],['ساره','s','أنا غلطت... سامحوني.'],['خالد','s','الأسف مرة عادي يا ساره... بس تكرار الغلط مرتين هو اللي هدّ ثقتنا فيكي.'],['أم ساره','s','مبقاش عندنا كلام نقوله...',{'أبو ساره':'a'}]];let i=0;
+G.innerHTML='<h1>بيت الجد</h1><div id="sc"><canvas id="cv" width="96" height="54"></canvas>'+CH.map(c=>'<canvas class="fch" data-w="'+c[0]+'" data-f="1" data-m="'+(c[0]=='ساره'?'w':'n')+'" style="left:'+c[1]+'%"></canvas>').join('')+'<div id="vg"></div></div><div id="dlg" class="px">'+pw('','n',0,'خالد')+'<div id="ct"><div id="tx"></div><div id="ctl"></div></div></div>';
+bg('بيت الجد','#6a3f2a');
+const sm=(w,m)=>setM(document.querySelector('.fch[data-w="'+w+'"]'),m),sp=w=>document.querySelectorAll('.fch').forEach(e=>e.classList.toggle('sp',e.dataset.w==w));
+function btn(t,fn){$('#ctl').innerHTML='<button id="gn" class="on">'+t+'</button>';$('#gn').onclick=()=>{snd(440,.08,'triangle',.05);fn()}}
+function nx(){if(i>=SC3.length)return fin();const q=SC3[i++];if(q[0]=='Q')return qs(q[1]);const[w,m,t,o]=q;sp(w);Object.entries(o||{}).forEach(([k,v])=>sm(k,v));sm(w,m);say(w,t,m);btn('التالي ▶',nx)}
+function qs(n){$('#ctl').innerHTML='<div style="margin:6px 0">اختار الدليل اللي يثبت كلامك:</div>'+clues.map((c,j)=>'<button data-j="'+j+'" style="display:block;width:100%;margin:4px 0;text-align:right;font-size:15px">'+c+'</button>').join('');
+$('#ctl').querySelectorAll('button').forEach(b=>b.onclick=()=>{const c=clues[+b.dataset.j];if(QK[n].some(k=>c.includes(k))){ok_();sp('خالد');sm('خالد','a');sm('ساره',n==2?'s':'w');say('خالد',c,'a');btn('التالي ▶',nx)}else{bad_();b.disabled=true;b.textContent+='  ✖';sp('ساره');sm('ساره','a');say('ساره','ده مش دليل! بتحاول تلبّسني حاجة!','a');setTimeout(()=>{sm('ساره','w');sp('خالد')},1500)}})}
+function fin(){story('الأدلة كلها بقت قدام العيلة، وساره ما قدرتش تنكر. أمها وأبوها سكتوا طويل، ومصطفى بص في الأرض. ساره محترمتش العهد للمرة التانية، وعيلتها فقدت ثقتها فيها.\n\nالمغزى: لما تغلط وتتأسف، ده عادي. لكن متكررش نفس الغلط مرتين، لأن ده هيؤدي لعواقب محدش هيستحملها، خصوصًا المذنب.','كمّل',advice,'ساره','s')}
+nx()}
+start();
+</script></body></html>
